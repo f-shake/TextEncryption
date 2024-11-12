@@ -25,17 +25,21 @@ while (type is not (1 or 2))
     }
     Console.WriteLine();
 }
+Console.WriteLine();
 
-string? inputText = null;
-while (string.IsNullOrWhiteSpace(inputText))
+Console.WriteLine("请输入文本或UTF8格式的文件地址，以!q结束：");
+StringBuilder inputSB = new StringBuilder();
+string? line = null;
+while ((line = Console.ReadLine()?.Trim()) != "!q")
 {
-    Console.WriteLine("请输入文本或UTF8格式的文件地址：");
-    inputText = Console.ReadLine()?.Trim();
+    if (inputSB.Length==0 && File.Exists(line))
+    {
+        inputSB.AppendLine(File.ReadAllText(line));
+        break;
+    }
+    inputSB.AppendLine(line);
 }
-if (File.Exists(inputText))
-{
-    inputText = File.ReadAllText(inputText);
-}
+string inputText = inputSB.ToString().Trim();
 
 Console.WriteLine();
 Console.WriteLine();
