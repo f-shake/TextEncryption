@@ -6,7 +6,14 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>$(Temp)\$(SolutionName)</OutputPath>
     <BaseIntermediateOutputPath>$(Temp)\$(SolutionName)\obj</BaseIntermediateOutputPath>
+    <PublishAot>true</PublishAot>
+    <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+    <TrimMode>link</TrimMode>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+</ItemGroup>
 
   <ItemGroup>
     <AvaloniaXaml Remove="obj\**" />
