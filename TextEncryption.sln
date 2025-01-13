@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEncryption", "TextEncryption.csproj", "{9E6F8D54-4156-447C-8D57-3B5C12286D44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionConsole", "TextEncryptionConsole\TextEncryptionConsole.csproj", "{625902D6-60AA-4F67-8881-561288274F3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionCore", "TextEncryptionCore\TextEncryptionCore.csproj", "{14BD20F5-892A-4712-8DD5-CAA8D3416148}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionGUI", "TextEncryptionGUI\TextEncryptionGUI.csproj", "{172E2AA0-AEAA-49F5-984B-8DCC6FC3E928}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionGUI.Android", "TextEncryptionGUI.Android\TextEncryptionGUI.Android.csproj", "{2DAD6480-47A4-4732-A444-73F73A95247F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionGUI.Browser", "TextEncryptionGUI.Browser\TextEncryptionGUI.Browser.csproj", "{5D80DAF9-64A2-4F87-973D-8139FF2DD505}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEncryptionGUI.Desktop", "TextEncryptionGUI.Desktop\TextEncryptionGUI.Desktop.csproj", "{3F32169F-89AE-41FE-9A04-EE5775FB8CC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +21,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E6F8D54-4156-447C-8D57-3B5C12286D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E6F8D54-4156-447C-8D57-3B5C12286D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E6F8D54-4156-447C-8D57-3B5C12286D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E6F8D54-4156-447C-8D57-3B5C12286D44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625902D6-60AA-4F67-8881-561288274F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625902D6-60AA-4F67-8881-561288274F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625902D6-60AA-4F67-8881-561288274F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625902D6-60AA-4F67-8881-561288274F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BD20F5-892A-4712-8DD5-CAA8D3416148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BD20F5-892A-4712-8DD5-CAA8D3416148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BD20F5-892A-4712-8DD5-CAA8D3416148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BD20F5-892A-4712-8DD5-CAA8D3416148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172E2AA0-AEAA-49F5-984B-8DCC6FC3E928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172E2AA0-AEAA-49F5-984B-8DCC6FC3E928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172E2AA0-AEAA-49F5-984B-8DCC6FC3E928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172E2AA0-AEAA-49F5-984B-8DCC6FC3E928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DAD6480-47A4-4732-A444-73F73A95247F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5D80DAF9-64A2-4F87-973D-8139FF2DD505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D80DAF9-64A2-4F87-973D-8139FF2DD505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D80DAF9-64A2-4F87-973D-8139FF2DD505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D80DAF9-64A2-4F87-973D-8139FF2DD505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F32169F-89AE-41FE-9A04-EE5775FB8CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F32169F-89AE-41FE-9A04-EE5775FB8CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F32169F-89AE-41FE-9A04-EE5775FB8CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F32169F-89AE-41FE-9A04-EE5775FB8CC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
