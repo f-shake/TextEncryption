@@ -19,18 +19,49 @@
         <TextBox
             Grid.Column="2"
             Text="{Binding T2}" />
-        <StackPanel
+        <Grid
             Grid.Row="2"
             Grid.ColumnSpan="99"
-            HorizontalAlignment="Center"
-            Orientation="Horizontal"
-            Spacing="8">
-            <TextBlock
-                VerticalAlignment="Center"
-                Text="密码：" />
-            <TextBox
-                Width="120"
-                Text="{Binding Password}" />
-        </StackPanel>
+            ColumnDefinitions="AUto,*,Auto">
+
+            <StackPanel
+                Orientation="Horizontal"
+                Spacing="8">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Text="密码：" />
+                <TextBox
+                    Width="120"
+                    Text="{Binding Password}" />
+                <TextBlock
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="前缀：" />
+                <TextBox
+                    Width="120"
+                    Text="{Binding Prefixes}" />
+                <TextBlock
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="后缀：" />
+                <TextBox
+                    Width="120"
+                    Text="{Binding Suffixes}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="2"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Button
+                    Command="{Binding CopyCommand}"
+                    CommandParameter="d"
+                    Content="复制明文" />
+                <Button
+                    Command="{Binding CopyCommand}"
+                    CommandParameter="e"
+                    Content="复制密文" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
