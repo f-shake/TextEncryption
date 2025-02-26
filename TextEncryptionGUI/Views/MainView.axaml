@@ -15,10 +15,19 @@
         ColumnDefinitions="*,8,*"
         RowDefinitions="*,8,Auto">
         <GridSplitter Grid.Column="2" />
-        <TextBox Text="{Binding T1}" />
+        <TextBox
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            Text="{Binding T1}"
+            TextWrapping="Wrap"
+            Watermark="明文" />
         <TextBox
             Grid.Column="2"
-            Text="{Binding T2}" />
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            Text="{Binding T2}"
+            TextWrapping="Wrap"
+            Watermark="密文" />
         <Grid
             Grid.Row="2"
             Grid.ColumnSpan="99"

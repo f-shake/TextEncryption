@@ -11,6 +11,8 @@ namespace TextEncryptionGUI.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
+    private bool? lastIsEncrypting = true;
+
     [ObservableProperty]
     private string password;
 
@@ -42,44 +44,8 @@ public partial class MainViewModel : ViewModelBase
         }
     }
 
-    partial void OnT1Changed(string value)
+    private void Decrypt(string value)
     {
-        if (updating == true)
-        {
-            return;
-        }
-        updating = true;
-        try
-        {
-            if (string.IsNullOrEmpty(Password))
-            {
-                throw new Exception("密码为空");
-            }
-            TextEncryptor te = new TextEncryptor(Password);
-            var text = te.Encrypt(value);
-            string test = te.Decrypt(text);
-            if (test != value)
-            {
-                throw new Exception("测试解密后的文本与源文本不同，需要检查算法");
-            }
-            T2 = $"{Prefixes}{text}{Suffixes}";
-        }
-        catch (Exception ex)
-        {
-            T2 = ex.ToString();
-        }
-        finally
-        {
-            updating = false;
-        }
-    }
-
-    partial void OnT2Changed(string value)
-    {
-        if (updating == true)
-        {
-            return;
-        }
         updating = true;
         try
         {
@@ -101,11 +67,75 @@ public partial class MainViewModel : ViewModelBase
         }
         catch (Exception ex)
         {
-            T1 = ex.ToString();
+            T1 = ex.Message;
         }
         finally
         {
             updating = false;
         }
+    }
+
+    private void Encrypt(string value)
+    {
+        updating = true;
+        try
+        {
+            if (string.IsNullOrEmpty(Password))
+            {
+                throw new Exception("密码为空");
+            }
+            TextEncryptor te = new TextEncryptor(Password);
+            var text = te.Encrypt(value);
+            string test = te.Decrypt(text);
+            if (test != value)
+            {
+                throw new Exception("测试解密后的文本与源文本不同，需要检查算法");
+            }
+            T2 = $"{Prefixes}{text}{Suffixes}";
+        }
+        catch (Exception ex)
+        {
+            T2 = ex.Message;
+        }
+        finally
+        {
+            updating = false;
+        }
+    }
+
+    partial void OnPasswordChanged(string value)
+    {
+        if (!lastIsEncrypting.HasValue)
+        {
+            return;
+        }
+        switch (lastIsEncrypting.Value)
+        {
+            case true:
+                Encrypt(T1);
+                break;
+            case false:
+                Decrypt(T2);
+                break;
+        }
+    }
+
+    partial void OnT1Changed(string value)
+    {
+        if (updating == true)
+        {
+            return;
+        }
+        lastIsEncrypting = true;
+        Encrypt(value);
+    }
+    partial void OnT2Changed(string value)
+    {
+        if (updating == true)
+        {
+            return;
+        }
+        lastIsEncrypting = false;
+        Decrypt(value);
     }
 }
