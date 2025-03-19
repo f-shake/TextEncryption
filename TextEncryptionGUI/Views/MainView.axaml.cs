@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Interactivity;
 using CommunityToolkit.Mvvm.Messaging;
 using TextEncryptionGUI.Messages;
 
@@ -14,5 +15,11 @@ public partial class MainView : UserControl
         {
             message.Clipboard = TopLevel.GetTopLevel(this).Clipboard;
         });
+    }
+
+    protected override void OnLoaded(RoutedEventArgs e)
+    {
+        base.OnLoaded(e);
+        txtD.Focus();
     }
 }

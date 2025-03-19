@@ -16,6 +16,7 @@
         RowDefinitions="*,8,Auto">
         <GridSplitter Grid.Column="2" />
         <TextBox
+            x:Name="txtD"
             AcceptsReturn="True"
             AcceptsTab="True"
             Text="{Binding T1}"
@@ -41,7 +42,21 @@
                     Text="密码：" />
                 <TextBox
                     Width="120"
+                    PasswordChar="{Binding PasswordChar}"
                     Text="{Binding Password}" />
+                <CheckBox
+                    VerticalAlignment="Center"
+                    Content="显示密码"
+                    IsChecked="{Binding DisplayPassword}" />
+                <CheckBox
+                    VerticalAlignment="Center"
+                    Content="保存密码"
+                    IsChecked="{Binding SavePassword}" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Foreground="Red"
+                    IsVisible="{Binding SavePassword}"
+                    Text="密码将明文保存" />
                 <TextBlock
                     Margin="16,0,0,0"
                     VerticalAlignment="Center"
