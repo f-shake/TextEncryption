@@ -2,6 +2,7 @@
     x:Class="TextEncryptionGUI.Views.MainView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:FzLib.Avalonia.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:TextEncryptionGUI.ViewModels"
@@ -32,11 +33,10 @@
         <Grid
             Grid.Row="2"
             Grid.ColumnSpan="99"
-            ColumnDefinitions="AUto,*,Auto">
+            ColumnDefinitions="*,32,Auto">
 
-            <StackPanel
-                Orientation="Horizontal"
-                Spacing="8">
+
+            <c:WrapFormItemGroup>
                 <TextBlock
                     VerticalAlignment="Center"
                     Text="密码：" />
@@ -51,12 +51,14 @@
                 <CheckBox
                     VerticalAlignment="Center"
                     Content="保存密码"
-                    IsChecked="{Binding SavePassword}" />
-                <TextBlock
-                    VerticalAlignment="Center"
-                    Foreground="Red"
-                    IsVisible="{Binding SavePassword}"
-                    Text="密码将明文保存" />
+                    IsChecked="{Binding SavePassword}">
+                    <ToolTip.Tip>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="Orange"
+                            Text="密码将明文保存" />
+                    </ToolTip.Tip>
+                </CheckBox>
                 <TextBlock
                     Margin="16,0,0,0"
                     VerticalAlignment="Center"
@@ -71,7 +73,11 @@
                 <TextBox
                     Width="120"
                     Text="{Binding Suffixes}" />
-            </StackPanel>
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Foreground="Red"
+                    Text="{Binding ErrorMessage}" />
+            </c:WrapFormItemGroup>
 
             <StackPanel
                 Grid.Column="2"

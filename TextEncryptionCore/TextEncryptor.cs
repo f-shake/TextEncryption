@@ -42,7 +42,7 @@ namespace TextEncryption
                 }
                 else
                 {
-                    output.Append(ch); // Keep characters not in any range as is
+                    output.Append(ch);
                 }
             }
 
